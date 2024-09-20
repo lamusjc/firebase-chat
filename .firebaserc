@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chat-99f4f": {
+      "hosting": {
+        "insta-web": [
+          "chat-99f4f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chat-99f4f"
+  }
+}

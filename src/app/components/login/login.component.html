@@ -1,0 +1,28 @@
+<div id="login">
+  <mat-card style="padding: 24px;">
+    <h3>Login FirebaseChat!</h3>
+    <div [formGroup]="form" fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-icon matSuffix class="secondary-text">email</mat-icon>
+        <mat-error>Invalid email!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Password">
+        <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+        <mat-error>Invalid password!</mat-error>
+      </mat-form-field>
+      <div>
+
+      </div>
+      <div class="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login();"
+          style="margin-right: 5px;">LOGIN!</button>
+        <button mat-raised-button color="accent" [routerLink]="['/register']">Not account? Register here!</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

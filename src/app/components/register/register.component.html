@@ -1,0 +1,42 @@
+<div id="register">
+  <mat-card style="padding: 24px;">
+    <h3>Register FirebaseChat!</h3>
+    <div [formGroup]="form" fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-icon matSuffix class="secondary-text">email</mat-icon>
+        <mat-error>Invalid email!</mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name">
+        <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+        <mat-error>Invalid name!</mat-error>
+      </mat-form-field> -->
+      <!-- 
+      <mat-form-field appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input matInput formControlName="lastname" placeholder="Lastname">
+        <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+        <mat-error>Invalid lastname!</mat-error>
+      </mat-form-field> -->
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Password">
+        <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+        <mat-error>Invalid password!</mat-error>
+      </mat-form-field>
+
+      <div class="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register();"
+          style="margin-right: 5px;">Save
+          account!</button>
+        <button mat-raised-button color="accent" [routerLink]="['/login']">Back login!</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

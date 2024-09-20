@@ -1,0 +1,33 @@
+<h1 style="text-align: center;">Chat private!</h1>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="example-container mat-elevation-z8" style="width: 50%;">
+    <div #chatcontent [scrollTop]="scrolltop">
+      <div *ngFor="let chat of chats">
+        <div text-center [ngStyle]="{'text-align': chat.nickname == nickname ? 'right' : 'left'}"
+          *ngIf="(chat.nickname == nickname || chat.nickname == users_id) && (chat.type == nickname || chat.type == users_id)"
+          [style.color]="chat.nickname == nickname ? 'red' : 'blue'">
+          <!-- <span class="chat-date">{{chat.date | date:'short'}}</span> -->
+          <!-- <span>{{chat.nickname == nickname ? (chat.nickname + ' (You): ' + chat.message) : (chat.nickname + ': ' + chat.message)}}</span> -->
+          <span>{{chat.nickname + ' : ' + chat.message}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
+    <mat-form-field>
+      <input matInput placeholder="Enter message here" formControlName="message">
+      <mat-error>
+        <span *ngIf="!chatForm.get('message').valid && chatForm.get('message').touched">Type here...</span>
+      </mat-error>
+      <button type="submit" [disabled]="!chatForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+
+</div>
